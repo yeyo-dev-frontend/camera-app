@@ -5,12 +5,13 @@ import { HORROR_ASSETS } from "../../../constants/theme";
 import {
   BloodDripsSvg,
   Box,
-  Btn,
   IconPhoto,
   IconVideo,
   Img,
   RedAuraSvg,
 } from "../../atoms";
+
+import { BloodButton } from "../blood-button/BloodButton";
 
 function ShutterLensButtonImpl({
   isVideo,
@@ -47,7 +48,8 @@ function ShutterLensButtonImpl({
           <RedAuraSvg size={120} intensity={0.65} />
         </Box>
       )}
-      <Btn
+      <BloodButton
+        bloodVariant="ring"
         accessibilityLabel={label}
         accessibilityState={{ disabled, busy: isBusy && primary }}
         disabled={disabled}
@@ -81,7 +83,7 @@ function ShutterLensButtonImpl({
             <IconPhoto size={primary ? 18 : 13} color="#111" />
           )}
         </Box>
-      </Btn>
+      </BloodButton>
       {primary && (
         <Box pointerEvents="none" className="absolute top-[84px]">
           <BloodDripsSvg width={44} height={18} />

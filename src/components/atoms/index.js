@@ -12,4 +12,5 @@ export { IconVideo } from "./IconVideo";
 export { ArcaneSigilSvg } from "./ArcaneSigilSvg";
 export { GothicCrossSvg } from "./GothicCrossSvg";
 export { BloodDripsSvg } from "./BloodDripsSvg";
+export { BloodAccentSvg } from "./BloodAccentSvg";
 export { RedAuraSvg } from "./RedAuraSvg";

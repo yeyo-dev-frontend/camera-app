@@ -1,7 +1,9 @@
 import React from "react";
 
 import { GLOW_SHADOWS } from "../../../constants/shadows";
-import { BloodDripsSvg, Box, Btn, RedAuraSvg } from "../../atoms";
+import { BloodDripsSvg, Box, RedAuraSvg } from "../../atoms";
+
+import { BloodButton } from "../blood-button/BloodButton";
 
 function TopActionButtonImpl({
   onPress,
@@ -19,7 +21,7 @@ function TopActionButtonImpl({
       >
         <RedAuraSvg size={78} intensity={auraIntensity} />
       </Box>
-      <Btn
+      <BloodButton
         onPress={onPress}
         disabled={disabled}
         accessibilityLabel={accessibilityLabel}
@@ -29,7 +31,7 @@ function TopActionButtonImpl({
         }`}
       >
         {children}
-      </Btn>
+      </BloodButton>
       <Box className="absolute top-[46px] items-center" pointerEvents="none">
         <BloodDripsSvg width={44} height={dripHeight} />
       </Box>

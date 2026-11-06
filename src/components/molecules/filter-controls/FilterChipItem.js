@@ -1,7 +1,9 @@
 import React, { useCallback } from "react";
 
 import { TEXT_GLOW_SHADOW } from "../../../constants/shadows";
-import { Btn, Paragraph } from "../../atoms";
+import { Paragraph } from "../../atoms";
+
+import { BloodButton } from "../blood-button/BloodButton";
 
 function FilterChipItemImpl({ filter, selected, disabled, onSelectFilter }) {
   const handlePress = useCallback(() => {
@@ -9,16 +11,16 @@ function FilterChipItemImpl({ filter, selected, disabled, onSelectFilter }) {
   }, [onSelectFilter, filter.id]);
 
   return (
-    <Btn
+    <BloodButton
+      bloodVariant="underline"
+      bloodVisible={selected}
       accessibilityRole="button"
       accessibilityLabel={`${filter.name}. ${filter.subtitle}`}
       accessibilityState={{ selected, disabled }}
       disabled={disabled}
       activeOpacity={0.7}
       onPress={handlePress}
-      className={`min-h-[44px] justify-center px-1 border-b-2 ${
-        selected ? "border-b-[#ed001c]" : "border-b-transparent"
-      } ${disabled ? "opacity-40" : "opacity-100"}`}
+      className={`min-h-[44px] justify-center px-1 pb-[5px] border-b-2 border-b-transparent ${disabled ? "opacity-40" : "opacity-100"}`}
     >
       <Paragraph
         style={TEXT_GLOW_SHADOW}
@@ -30,7 +32,7 @@ function FilterChipItemImpl({ filter, selected, disabled, onSelectFilter }) {
       >
         {filter.name}
       </Paragraph>
-    </Btn>
+    </BloodButton>
   );
 }
 

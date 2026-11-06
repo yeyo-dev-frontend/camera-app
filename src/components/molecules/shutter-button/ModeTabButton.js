@@ -1,7 +1,9 @@
 import React, { useCallback } from "react";
 
 import { CAMERA_MODES } from "../../../constants/theme";
-import { Btn, IconPhoto, IconVideo, Paragraph } from "../../atoms";
+import { IconPhoto, IconVideo, Paragraph } from "../../atoms";
+
+import { BloodButton } from "../blood-button/BloodButton";
 
 function ModeTabButtonImpl({ item, selected, disabled, onSelectMode }) {
   const isPicture = item === CAMERA_MODES.PICTURE;
@@ -12,16 +14,16 @@ function ModeTabButtonImpl({ item, selected, disabled, onSelectMode }) {
   }, [onSelectMode, item]);
 
   return (
-    <Btn
+    <BloodButton
+      bloodVariant="underline"
+      bloodVisible={selected}
       accessibilityRole="tab"
       accessibilityLabel={isPicture ? "Modo foto" : "Modo vídeo"}
       accessibilityState={{ selected, disabled }}
       disabled={disabled}
       onPress={handlePress}
       activeOpacity={0.7}
-      className={`min-h-[44px] min-w-[88px] flex-row items-center justify-center gap-2 border-b-2 ${
-        selected ? "border-b-[#df001b]" : "border-b-transparent"
-      } ${disabled ? "opacity-50" : "opacity-100"}`}
+      className={`min-h-[44px] min-w-[88px] flex-row items-center justify-center gap-2 pb-[5px] border-b-2 border-b-transparent ${disabled ? "opacity-50" : "opacity-100"}`}
     >
       <Icon size={16} color={selected ? "#ed1930" : "#8c7e80"} />
       <Paragraph
@@ -31,7 +33,7 @@ function ModeTabButtonImpl({ item, selected, disabled, onSelectMode }) {
       >
         {isPicture ? "FOTO" : "VÍDEO"}
       </Paragraph>
-    </Btn>
+    </BloodButton>
   );
 }
 
